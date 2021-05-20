@@ -1,8 +1,11 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
+import NavigationReducer from './slice/navigation/navigation';
 
+const rootReducer = combineReducers({
+  navigation: NavigationReducer
+})
 export const store = configureStore({
-  reducer: {
-  },
+  reducer: rootReducer
 });
 
 export type AppDispatch = typeof store.dispatch;
